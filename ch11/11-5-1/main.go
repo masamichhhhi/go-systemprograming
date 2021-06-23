@@ -10,7 +10,7 @@ func main() {
 	count := exec.Command("./count")
 	stdout, _ := count.StdoutPipe()
 	go func() {
-		scanner, _ := bufio.NewScanner(stdout)
+		scanner := bufio.NewScanner(stdout)
 		for scanner.Scan() {
 			fmt.Printf("(stdout) %s\n", scanner.Text())
 		}
